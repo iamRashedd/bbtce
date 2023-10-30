@@ -49,7 +49,7 @@ class UserController extends Controller
         $user = User::where('email',$request->email)->where('password',$request->password)->first();
         if($user){
             Auth::login($user);
-            return redirect()->route('profile.list');
+            return redirect()->route('home');
         }else{
         return redirect()->route('user.login');
         }

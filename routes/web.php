@@ -34,9 +34,14 @@ Route::prefix('user')->name('user.')->group(function () {
 Route::prefix('profile')->name('profile.')->middleware('auth')->group(function () {
 
     Route::get('/list', [ProfileController::class,'index'])->name('list');
-    Route::get('/register', [ProfileController::class,'register'])->name('register');
-    Route::post('/register', [ProfileController::class,'store'])->name('store');
-    
+
+    Route::get('/adminaddmoney', [ProfileController::class,'adminaddmoney'])->name('admin.addmoney');
+    Route::post('/adminaddmoney', [ProfileController::class,'adminaddmoneySubmit'])->name('admin.addmoney.submit');
+
+    Route::get('/addmoney', [ProfileController::class,'addmoney'])->name('addmoney');
+    Route::post('/addmoney', [ProfileController::class,'addmoneySubmit'])->name('addmoney.submit');
+
+
     Route::get('/transfer', [ProfileController::class,'transferForm'])->name('transfer');
     Route::post('/transfer', [ProfileController::class,'transferSubmit'])->name('transfer.submit');
 

@@ -38,17 +38,14 @@ class ProfileController extends Controller
 
 
     }
-    public function getProfileByAccount($account){
-        $profile = Profile::where("account_number",$account)->first();
-        return $profile;
-    }
-    public function transferForm(){
-        $profiles = Profile::get();
-        return view("Transfer",compact("profiles"));
-    }
-    public function transferSubmit(Request $request){
 
-        //dd($request->all());
+    public function adminaddmoney(){
+
+        $profiles = Profile::get();
+        return view("profile.AddMoney",compact("profiles"));
+    }
+
+    public function adminaddmoneySubmit(Request $request){
 
         $profile = $this->getProfileByAccount($request->profile);
         
@@ -57,21 +54,70 @@ class ProfileController extends Controller
         
         return redirect()->route('profile.list');
 
+    }
+    public function addmoney(){
+
+        $profile = auth()->user()->profile;
+        return view("profile.AddMoney",compact("profile"));
+    }
+
+    public function addmoneySubmit(Request $request){
+
+        $request->validate([
+            "amount"=> "required",
+            "currency"=> "required",
+        ]);
+
+        $profile = auth()->user()->profile;
+        
+        $profile->addBalance($request->amount,$request->currency);
+        
+        return redirect()->route('profile.list');
+
+    }
+    public function getProfileByAccount($account){
+        $profile = Profile::where("account_number",$account)->first();
+        return $profile;
+    }
+    public function transferForm(){
+        $profile = auth()->user()->profile;
+        return view("profile.Transfer",compact("profile"));
+    }
+    public function transferSubmit(Request $request){
+
+        //dd($request->all());
+
+        $request->validate([
+            "transferToAccount"=> "required",
+            "amount"=> "required",
+        ]);
+
+        $transfer = $this->getProfileByAccount($request->transferToAccount);
+        
+        if(!$transfer){
+            return redirect()->route("profile.transfer");
+        }
+        
+        $action = auth()->user()->profile->removeBalance($request->amount,$request->currency);
+        if($action){
+            $transfer->addBalance($request->amount,$request->currency);
+            return redirect()->route('home');
+        }else{
+            return redirect()->route('profile.transfer');
+        }
+        
+
         //return view("Transfer",compact(["profile","profile2"]));
 
     }
 
     public function changeCurrencyForm(){
-        $profiles = Profile::get();
-        return view("Conversion",compact("profiles"));
+        $profile = auth()->user()->profile;
+        return view("profile.Conversion",compact("profile"));
     }
     public function changeCurrencySubmit(Request $request){
-
-        //dd($request->all());
-
-        $profile = $this->getProfileByAccount($request->profile);
         
-        
+        $profile = auth()->user()->profile;
         $action = $profile->removeBalance($request->amount,$request->currency);
 
         if($action){
