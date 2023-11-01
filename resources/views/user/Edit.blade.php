@@ -1,4 +1,6 @@
+@extends('layout.theme')
 
+@section('content')
 
 <form action="{{route('user.update')}}" method="post">
     @csrf
@@ -30,3 +32,5 @@
             <button type="submit">Save</button>
             <button><a href="/user/show">Back</a></button>
 </form>
+
+@endsection

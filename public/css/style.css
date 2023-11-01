@@ -1,0 +1,888 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.testclass{
+    font-size: 10px;
+}
+/*  -----------home---------- */
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-position: 535px 50px;
+    background-color: #020E2C;
+    background-repeat: no-repeat;
+}
+
+.bg_image img {
+    height: 80vh;
+    width: 50%;
+    display: inline;
+    position: fixed;
+    left: 270px;
+    top: 70px;
+}
+
+nav {
+    width: 100%;
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+}
+
+nav .logo {
+    width: 10%;
+}
+
+nav ul {
+    flex: 120;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 10px 20px;
+}
+
+nav ul li a {
+    color: rgb(244, 239, 239);
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    transform: scale(1.1);
+    z-index: 100;
+    color: #080808;
+    background: #f4f7f9;
+    box-shadow: 0 5px 15px rgb(110, 90, 240);
+}
+
+nav .button {
+    color: rgb(244, 239, 239);
+    text-decoration: none;
+    border: 1px solid floralwhite;
+    padding: 3px 18px;
+    border-radius: 20px;
+}
+
+@media screen and (max-width:600px) {
+    .logo {
+        width: 3%;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .bg_image img {
+        width: 20%;
+        height: 25dvh;
+        cursor: pointer;
+    }
+}
+
+
+/* @media screen and (max-width:600px) {
+    .container {
+        background-image: url('image/blockchain_bg.gif');
+        background-position: 50px 50px;
+        background-color: #020E2C;
+        background-repeat: no-repeat;
+    }
+} */
+
+
+/*  -----------LOGIN page---------- */
+
+@media screen and (max-width:600px) {
+    .login_div form {
+        width: 157px;
+        height: 450px;
+        cursor: pointer;
+    }
+}
+
+.log_image img {
+    height: 60vh;
+    width: 50%;
+    display: inline;
+    position: fixed;
+    left: 600px;
+    top: 120px;
+}
+
+.login_div {
+    position: relative;
+    width: 380px;
+    margin-top: 30px;
+    margin-left: 100px;
+    height: 350px;
+    background: #284387;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.login_div form {
+    position: absolute;
+    inset: 4px;
+    padding: 50px 40px;
+    background: #22386f;
+    border-radius: 8px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.login_div form .input-login {
+    position: relative;
+    width: 200px;
+    margin-top: 10PX;
+    opacity: 0.9;
+}
+
+.login_div form .input-login input {
+    outline: none;
+    box-shadow: none;
+    z-index: 10;
+}
+
+.login_div form h2 {
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: white;
+}
+
+.password {
+    position: relative;
+    width: 200px;
+    margin-top: 10PX;
+    opacity: 0.9;
+}
+
+.password input {
+    width: 100%;
+    height: 25px;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.pass_icon {
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.login-link a {
+    text-decoration: none;
+    color: rgb(189, 185, 185);
+}
+
+.login_div form .login-link a:hover,
+.login_div form .login-link a:nth-child(2) {
+    color: white;
+}
+
+input[type="submit"] {
+    width: 25%;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+input[type="text"] {
+    width: 100%;
+    height: 25px;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    z-index: 100;
+    color: #080808;
+    background: #f4f7f9;
+    box-shadow: 0 5px 5px rgb(16, 20, 30);
+}
+
+
+/*  -----------signup---------- */
+
+.signup {
+    width: 100vh;
+    background-color: #020E2C;
+    height: 100%;
+}
+
+@media screen and (max-width:600px) {
+    .signup {
+        width: 10vh;
+        height: 900vh;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width:2000px) {
+    .signup {
+        width: 100%;
+        height: 110vh;
+        cursor: pointer;
+    }
+}
+
+.signup-container {
+    width: 70%;
+    height: 100%;
+    background-color: #efebf4;
+    position: relative;
+    left: 17%;
+    padding-left: 10px;
+    max-width: 700px;
+}
+
+.signup-input {
+    margin-left: 20%;
+}
+
+.signup-input input {
+    width: 70%;
+    background: transparent;
+    padding: 3px;
+    border: 2px solid #b0c3f4;
+    border-radius: 5px;
+}
+
+.age {
+    display: flex;
+}
+
+.age_gender {
+    display: flex;
+}
+
+.age-box {
+    margin-top: 5px;
+    width: 70%;
+    background: transparent;
+}
+
+.age_gender p {
+    padding: 5px;
+}
+
+.option {
+    margin-top: 2px;
+    display: flex;
+}
+
+.gender {
+    padding: 10px;
+    display: flex;
+}
+
+.nid {
+    display: flex;
+    margin-top: 10px;
+}
+
+.nid-box {
+    margin-left: 18px;
+    margin-top: 2px;
+    width: 30%;
+    background: transparent;
+}
+
+.country-box {
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 40%;
+    background: transparent;
+}
+
+.country {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 130px;
+}
+
+.button_signup input {
+    outline: none;
+    box-shadow: none;
+    z-index: 10;
+}
+
+.button_signup input[type="submit"] {
+    margin-left: 400px;
+    width: 20%;
+    height: 25px;
+    border: 2px solid #b7b3b3;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #e7e7e7;
+}
+
+.signpwd_icon {
+    position: absolute;
+    top: 280px;
+    right: 168px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.confirepwd_icon {
+    position: absolute;
+    top: 325px;
+    right: 168px;
+    width: 20px;
+    cursor: pointer;
+}
+
+
+/*  -----------user page--------- */
+
+.userpage_img {
+    margin-top: 40px;
+    margin-left: 40px;
+    height: 50px;
+    width: 70px;
+    border-radius: 90%;
+    float: left;
+}
+
+.userpage ul li {
+    list-style: none;
+}
+
+.userpage {
+    margin-left: 250PX;
+    height: 300px;
+    width: 550px;
+    background-color: rgb(231, 233, 241);
+    padding: 40px;
+    text-align: center;
+    border-radius: 3%;
+}
+
+.userpage ul li a {
+    margin-top: 20px;
+    margin-left: 65px;
+    color: rgb(231, 233, 241);
+    text-decoration: none;
+    background: rgb(17, 17, 17);
+    box-shadow: 0 5px 15px #262627;
+    float: left;
+}
+
+.userpage ul li a:hover {
+    transform: scale(1.1);
+    color: #100f0f;
+    z-index: 100;
+    background: #c9cacd;
+    box-shadow: 0 5px 15px rgb(30, 30, 30);
+}
+
+
+/*  -----------user adding---------- */
+
+.sidebar-image {
+    height: 14px;
+    margin-right: 4px;
+}
+
+.image img {
+    margin-top: 9px;
+    margin-left: 490px;
+    height: 110px;
+    width: 113px;
+    border-radius: 90%;
+}
+
+.image h1 {
+    font-size: 20px;
+    color: rgb(255, 252, 252);
+    text-align: center;
+}
+
+.image p {
+    opacity: 0.7;
+    font-size: 15px;
+    color: rgb(247, 242, 242);
+    text-align: center;
+}
+
+.sidebar {
+    box-shadow: inset -10px 9px 9px rgb(18, 18, 18);
+    width: 25%;
+    height: 100vh;
+    background-color: hsla(0, 0%, 98%, 0.867);
+    transition: transform 0.3s ease-in;
+}
+
+.sidebar nav {
+    padding: 10px;
+}
+
+.sidebar nav li {
+    list-style: none;
+    margin-top: 30px;
+    padding: 10px 0px;
+    font-size: 10px;
+}
+
+.sidebar nav li a {
+    color: rgb(11, 13, 3);
+}
+
+.main {
+    width: 90%;
+}
+
+.humburger {
+    position: fixed;
+    cursor: pointer;
+    top: 15px;
+    left: 15px;
+}
+
+.hum {
+    width: 23px;
+}
+
+.cross {
+    width: 23px;
+    margin-left: 50px;
+    margin-top: 0px;
+}
+
+.sidebarGo {
+    transform: translate(-443px, 0px);
+    position: absolute;
+}
+
+.heading_fixed {
+    display: flex;
+}
+
+.add {
+    margin-left: 250PX;
+    height: 300px;
+    width: 550px;
+    background-color: rgb(231, 233, 241);
+    padding: 40px;
+    text-align: center;
+    border-radius: 3%;
+}
+
+.add input {
+    margin-left: 10px;
+}
+
+.add input[type="number"] {
+    margin-left: 73px;
+}
+
+.button_add input {
+    outline: none;
+    box-shadow: none;
+    z-index: 10;
+}
+
+.button_add input[type="submit"] {
+    margin-left: 30px;
+    width: 20%;
+    height: 25px;
+    border: 2px solid #b7b3b3;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #e7e7e7;
+}
+
+.cash-block {
+    position: absolute;
+    display: flex;
+}
+
+.cash-section {
+    position: relative;
+}
+
+.cash input {
+    outline: none;
+    box-shadow: none;
+    z-index: 20;
+}
+
+.cash {
+    position: absolute;
+    margin-top: 30px;
+}
+
+.cash p {
+    margin-left: 930px;
+    margin-top: -25px;
+}
+
+.cash input[type="text"] {
+    margin-left: 870px;
+    width: 20%;
+    height: 25px;
+    border: 3px solid #b7b3b3;
+    border-radius: 5px;
+    font-size: 13px;
+    background-color: #e7e7e7;
+}
+
+.cash-button {
+    margin-top: 33px;
+    margin-left: 1000px;
+    position: absolute;
+}
+
+.container-body {
+    position: relative;
+}
+
+.sidebar-part {
+    position: absolute;
+}
+
+.body-part {
+    position: absolute;
+}
+
+.acc-profile {
+    margin-left: 10px;
+}
+
+.marquee {
+    font-size: 30px;
+    font-weight: 800;
+    color: #0b0b0b;
+    font-family: sans-serif;
+}
+
+
+/*  -----------user sending---------- */
+
+.send {
+    margin-left: 250PX;
+    height: 300px;
+    width: 550px;
+    margin-top: 5px;
+    background-color: rgb(231, 233, 241);
+    padding: 20px;
+    text-align: center;
+    border-radius: 3%;
+}
+
+.button_send input[type="submit"] {
+    margin-left: 30px;
+    width: 20%;
+    height: 25px;
+    border: 2px solid #b7b3b3;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #e7e7e7;
+}
+
+.send input[type="text"] {
+    margin-left: 61px;
+    width: 32.5%;
+    height: 20px;
+    padding: 3px;
+    border: 1px solid rgb(72, 70, 70);
+    border-radius: 0px;
+}
+
+.send input[type="password"] {
+    margin-left: 61px;
+    width: 32.5%;
+    height: 20px;
+    padding: 3px;
+    border: 1px solid rgb(72, 70, 70);
+    border-radius: 0px;
+}
+
+.send input {
+    margin-left: 10px;
+}
+
+.send input[type="number"] {
+    margin-left: 73px;
+}
+
+.sendpwd_icon {
+    position: absolute;
+    top: 285px;
+    right: 425px;
+    width: 20px;
+    cursor: pointer;
+}
+
+
+/*  -----------user swap---------- */
+
+.swap {
+    margin-left: 250PX;
+    height: 300px;
+    width: 550px;
+    margin-top: 5px;
+    background-color: rgb(231, 233, 241);
+    padding: 20px;
+    text-align: center;
+    border-radius: 3%;
+}
+
+.swap-text b {
+    margin-left: -233px;
+}
+
+.swap-drop {
+    margin-top: -15px;
+    margin-left: 30px;
+}
+
+.button_swap input {
+    margin-left: -200px;
+}
+
+.button_swap input[type="submit"] {
+    width: 20%;
+    height: 25px;
+    border: 2px solid #b7b3b3;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #e7e7e7;
+    float: left;
+    margin-left: 100px;
+}
+
+.button_show input[type="submit"] {
+    margin-right: 100px;
+    width: 20%;
+    height: 25px;
+    border: 2px solid #b7b3b3;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #e7e7e7;
+    float: right;
+}
+
+.swap input[type="text"] {
+    margin-left: 61px;
+    width: 32.5%;
+    height: 20px;
+    padding: 3px;
+    border: 1px solid rgb(72, 70, 70);
+    border-radius: 0px;
+}
+
+.swap input[type="password"] {
+    margin-left: 61px;
+    width: 32.5%;
+    height: 20px;
+    padding: 3px;
+    border: 1px solid rgb(72, 70, 70);
+    border-radius: 0px;
+}
+
+.swap input[type="number"] {
+    margin-left: 73px;
+}
+
+
+/*  -----------user swap show---------- */
+
+.swap-show {
+    margin-left: 250PX;
+    height: 300px;
+    width: 550px;
+    margin-top: 5px;
+    background-color: rgb(231, 233, 241);
+    padding: 20px;
+    border-radius: 3%;
+}
+
+.swap-show-dropdown {
+    margin-top: -13px;
+    margin-left: 83px;
+}
+
+.swap-show-drop1 {
+    float: left;
+}
+
+.swap-show-text2 {
+    position: relative;
+    margin-left: 132px;
+    float: left;
+}
+
+.swap-show-drop2 {
+    position: relative;
+    margin-left: 250px;
+}
+
+.ammount {
+    margin-top: -15px;
+}
+
+.ammount pre {
+    margin-left: -62px;
+}
+
+.button_swap_show input[type="submit"] {
+    margin-left: 200px;
+    width: 20%;
+    height: 25px;
+    border: 2px solid #b7b3b3;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #e7e7e7;
+}
+
+.swap-show input[type="text"] {
+    margin-left: 8px;
+    width: 32.5%;
+    height: 20px;
+    padding: 3px;
+    border: 1px solid rgb(72, 70, 70);
+    border-radius: 0px;
+}
+
+.swap-show input[type="password"] {
+    margin-left: 8px;
+    width: 32.5%;
+    height: 20px;
+    padding: 3px;
+    border: 1px solid rgb(72, 70, 70);
+    border-radius: 0px;
+}
+
+.swap_showpwd_icon {
+    position: absolute;
+    top: 324px;
+    right: 578px;
+    width: 20px;
+    cursor: pointer;
+}
+
+
+/*  -----------about us---------- */
+
+body {
+    background-color: #020e2c;
+}
+
+.container2 .logo {
+    height: 40px;
+}
+
+.container2 {
+    width: 100%;
+    /* height: fit-content; */
+    margin-left: auto;
+    margin-right: auto;
+    /* background-color: #2b468b; */
+}
+
+.tiltle h2 {
+    padding-top: 20px;
+    text-align: center;
+    text-decoration: underline;
+    color: #e8e5e5;
+}
+
+.profile {
+    width: 30%;
+    float: left;
+    background-color: #d3d7de;
+    border-radius: 5px;
+    box-shadow: 0 7px 7px #e7e5e5;
+    margin: 50px 100px;
+}
+
+.profile_cont {
+    text-align: center;
+}
+
+.profile_cont ul li {
+    margin-left: 10px;
+    margin-bottom: 5px;
+    list-style-type: none;
+}
+
+.profile_cont ul li a {
+    color: #0d0d0d;
+}
+
+.profile img {
+    height: 110px;
+    width: 113px;
+    border-radius: 80%;
+}
+
+.about {
+    width: 30%;
+    float: left;
+    background-color: #d3d7de;
+    border-radius: 5px;
+    box-shadow: 0 7px 7px #e7e5e5;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 50px;
+}
+
+.about img {
+    width: 100%;
+    height: 200px;
+    border-radius: 5px 5px 0 0;
+}
+
+.about h3 {
+    text-align: center;
+}
+
+.about p {
+    font-size: 13px;
+    padding: 0 15px 15px 15px;
+    overflow: hidden;
+}
+
+#btn {
+    background-color: #b13939;
+    color: #d3d7de;
+    padding: 10px 15px;
+    margin: 15px;
+    border-radius: 5px;
+    float: right;
+}
+
+#btn:hover {
+    background-color: #0b0b0b;
+    box-shadow: 0 5px 5px black;
+}
+
+.cont {
+    width: 100%;
+    float: left;
+    background-color: #2a2a2a;
+}
+
+.cont p {
+    color: #e8e5e5;
+    text-align: justify;
+    margin: 20px 10px;
+}

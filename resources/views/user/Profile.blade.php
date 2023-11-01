@@ -1,3 +1,7 @@
+@extends('layout.theme')
+
+@section('content')
+<div>            
             Account Name:
             <input type="text" id="ProfileFirstName" value="{{$user->profile->first_name}}" disabled>
             <input type="text" id="ProfileLastName" value="{{$user->profile->last_name}}" disabled>
@@ -16,3 +20,6 @@
 
             <button><a href="/user/edit">Edit</a></button>
             <button><a href="/">Home</a></button>
+
+</div>
+@endsection

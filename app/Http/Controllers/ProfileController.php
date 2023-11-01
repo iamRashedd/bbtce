@@ -42,7 +42,7 @@ class ProfileController extends Controller
     public function adminaddmoney(){
 
         $profiles = Profile::get();
-        return view("profile.AddMoney",compact("profiles"));
+        return view("profile.AdminAddMoney",compact("profiles"));
     }
 
     public function adminaddmoneySubmit(Request $request){

@@ -1,3 +1,11 @@
+@extends('layout.theme')
+
+@section('content')
+
+<p class="testclass">
+    Login Page
+</p>
+<div class="login_div form">
 <form action="{{route('user.login.submit')}}" method="post">
     @csrf 
     Email:
@@ -8,3 +16,7 @@
     <br>
     <button type="submit" value="Login">Login</button>
 </form>
+
+</div>
+
+@endsection

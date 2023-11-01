@@ -1,5 +1,6 @@
-<html>
-<body>
+@extends('layout.theme')
+
+@section('content')
 
     <form id="conversion" action="{{route('profile.conversion.submit')}}" method="post">
     @csrf
@@ -44,11 +45,5 @@
     
     <button type="submit">Convert</button>
     </form>
-</body>
 
-
-<script>
-
-</script>
-
-</html>
+@endsection

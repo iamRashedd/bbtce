@@ -1,5 +1,6 @@
-<html>
-<body>
+@extends('layout.theme')
+
+@section('content')
 
     <form id="transfer" action="{{route('profile.transfer.submit')}}" method="post">
     @csrf
@@ -40,11 +41,6 @@
     
     <button type="submit">Transfer</button>
     </form>
-</body>
 
 
-<script>
-
-</script>
-
-</html>
+@endsection

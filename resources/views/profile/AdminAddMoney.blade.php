@@ -1,7 +1,8 @@
-<html>
-<body>
+@extends('layout.theme')
 
-    <form id="transfer" action="{{route('profile.transfer.submit')}}" method="post">
+@section('content')
+
+    <form id="adminaddmoney" action="{{route('profile.admin.addmoney.submit')}}" method="post">
     @csrf    
         <select name="profile" id="SelectedProfile" value="" onchange="displayProfileDetails()">
             @foreach($profiles as $profile)
@@ -59,4 +60,4 @@
 }
 </script>
 
-</html>
+@endsection
