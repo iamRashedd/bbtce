@@ -42,4 +42,7 @@
             @endforeach
         </table>
 
+        <br>
+        <button><a href="/">Home</a></button>
+
 @endsection

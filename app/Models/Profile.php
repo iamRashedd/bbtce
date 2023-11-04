@@ -10,6 +10,13 @@ class Profile extends Model
     use HasFactory;
     protected $table = 'profiles';
 
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'username',
+        'account_number',
+    ];
+
 
     public function addBalance($amount,$currency){
         

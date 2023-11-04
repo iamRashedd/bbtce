@@ -31,12 +31,14 @@ Route::prefix('user')->name('user.')->group(function () {
 
 });
 
+
+Route::get('/admin/addmoney', [ProfileController::class,'adminaddmoney'])->middleware('auth')->name('admin.addmoney');
+Route::post('/admin/addmoney', [ProfileController::class,'adminaddmoneySubmit'])->middleware('auth')->name('admin.addmoney.submit');
+
 Route::prefix('profile')->name('profile.')->middleware('auth')->group(function () {
 
     Route::get('/list', [ProfileController::class,'index'])->name('list');
 
-    Route::get('/adminaddmoney', [ProfileController::class,'adminaddmoney'])->name('admin.addmoney');
-    Route::post('/adminaddmoney', [ProfileController::class,'adminaddmoneySubmit'])->name('admin.addmoney.submit');
 
     Route::get('/addmoney', [ProfileController::class,'addmoney'])->name('addmoney');
     Route::post('/addmoney', [ProfileController::class,'addmoneySubmit'])->name('addmoney.submit');

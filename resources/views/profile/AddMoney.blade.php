@@ -32,6 +32,7 @@
         <br>
     
     <button type="submit">Submit</button>
+    <button><a href="/">Home</a></button>
     </form>
 </body>
 

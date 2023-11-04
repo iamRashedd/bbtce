@@ -15,6 +15,7 @@
     <input type="password" name="password">
     <br>
     <button type="submit" value="Login">Login</button>
+    <button><a href="{{route('user.register')}}">Sugn up</a></button>
 </form>
 
 </div>

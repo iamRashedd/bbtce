@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form id="adminaddmoney" action="{{route('profile.admin.addmoney.submit')}}" method="post">
+    <form id="adminaddmoney" action="{{route('admin.addmoney.submit')}}" method="post">
     @csrf    
         <select name="profile" id="SelectedProfile" value="" onchange="displayProfileDetails()">
             @foreach($profiles as $profile)
@@ -38,6 +38,7 @@
         <br>
     
     <button type="submit">Submit</button>
+    <button><a href="/">Home</a></button>
     </form>
 </body>
 

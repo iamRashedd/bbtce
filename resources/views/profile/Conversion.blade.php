@@ -44,6 +44,7 @@
         <br>
     
     <button type="submit">Convert</button>
+    <button><a href="/">Home</a></button>
     </form>
 
 @endsection

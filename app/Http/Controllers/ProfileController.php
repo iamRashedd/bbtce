@@ -9,9 +9,7 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
     public function index(){
-        dump(auth()->user()->profile->first_name);
         $profiles = Profile::all();
-
         return view("profile.Accounts",compact("profiles"));
 
     }
