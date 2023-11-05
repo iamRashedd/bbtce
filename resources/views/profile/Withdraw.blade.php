@@ -3,28 +3,25 @@
 @section('content')
 
     <form id="withdraw" action="{{route('profile.withdraw.submit')}}" method="post">
-    @csrf    
-        <select name="profile" id="SelectedProfile" value="" onchange="displayProfileDetails()">
-            @foreach($profiles as $profile)
-            <option value="{{$profile->account_number}}">{{$profile->first_name}}</option>
-            @endforeach
-        </select>
+    @csrf
+        <input type="hidden" name="message" id="message" value="{{$message ?? ''}}">
+        <input type="hidden" name="status" id="status" value="{{$status ?? ''}}">
 
         <p id="ProfileDetail">
             Account Name:
-            <input type="text" id="ProfileFirstName" value="" disabled>
-            <input type="text" id="ProfileLastName" value="" disabled>
+            <input type="text" id="ProfileFirstName" value="{{$profile->first_name}}" disabled>
+            <input type="text" id="ProfileLastName" value="{{$profile->last_name}}" disabled>
             <br>
             Account Number:
-            <input type="number" id="ProfileAccountNumber" value="" disabled>
+            <input type="number" id="ProfileAccountNumber" value="{{$profile->account_number}}" disabled>
             <br>
             Account Balance:
             <br>
-            <input type="number" id="ProfileBDTBalance" value="" disabled>BDT 
+            <input type="number" id="ProfileBDTBalance" value="{{$profile->balanceBDT}}" disabled>BDT 
             <br>
-            <input type="number" id="ProfileUSDBalance" value="" disabled>USD
+            <input type="number" id="ProfileUSDBalance" value="{{$profile->balanceUSD}}" disabled>USD
             <br>
-            <input type="number" id="ProfileETHBalance" value="" disabled>ETH
+            <input type="number" id="ProfileETHBalance" value="{{$profile->balanceETH}}" disabled>ETH
             
         </p>
         <input type="number" name="amount" value=""/>
@@ -40,25 +37,28 @@
     <button type="submit">Submit</button>
     <button><a href="/">Home</a></button>
     </form>
+
+    <div id="alertBox"></div>
+    
 </body>
 
-
 <script>
+    var error = document.getElementById('message').value;
+    var status = document.getElementById('status').value;
+    console.log(error);
+    if(error){
+        const text = 'Transaction '+status+'! '+error;
+        const box = document.createTextNode(text);
+        document.getElementById('alertBox').appendChild(box);
+        if(status === "FAILED"){
+            document.getElementById('alertBox').style.color = "red";    
+        }
+        else{  
+            document.getElementById('alertBox').style.color = "green";    
+        }
 
-    var profiles = <?php echo json_encode($profiles); ?>;
-
-    function displayProfileDetails(){
-        profiles.forEach(function (profile) {
-            if (profile.account_number == document.getElementById('SelectedProfile').value) {
-                document.getElementById('ProfileFirstName').value = profile.first_name;
-                document.getElementById('ProfileLastName').value = profile.last_name;
-                document.getElementById('ProfileAccountNumber').value = profile.account_number;
-                document.getElementById('ProfileBDTBalance').value = profile.balanceBDT;
-                document.getElementById('ProfileUSDBalance').value = profile.balanceUSD;
-                document.getElementById('ProfileETHBalance').value = profile.balanceETH;
-            }
-    });  
-}
+    }
+    
 </script>
 
 @endsection

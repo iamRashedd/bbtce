@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unsignedDouble('balanceUSD')->nullable()->default(0);
             $table->unsignedDouble('balanceETH')->nullable()->default(0);
             $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
 
         });

@@ -2,8 +2,10 @@
 
 @section('content')
 
-<form action="{{route('user.update')}}" method="post">
+<form action="{{route('user.update')}}" method="post" enctype="multipart/form-data">
     @csrf
+            <img class="" width="150px" src="../assets/uploads/{{$user->profile->photo}}">
+            <br>
             Account Number:
             <input type="number" id="ProfileAccountNumber" value="{{$user->profile->account_number}}" disabled>
             <br>
@@ -12,19 +14,23 @@
             <br>
             <br>
             Account Name:
-            <input type="text" name="firstName" id="ProfileFirstName" value="{{$user->profile->first_name}}" >
-            <input type="text" name="lastName" id="ProfileLastName" value="{{$user->profile->last_name}}" >
+            <input type="text" name="firstName" id="firstName" value="{{$user->profile->first_name}}" >
+            <input type="text" name="lastName" id="lastName" value="{{$user->profile->last_name}}" >
             <br>
            
             <br>
             Old Password:
-            <input type="password" name="oldPassword" id="oldpassword">
+            <input type="password" name="oldPassword" id="oldpassword" required>
             <br>
             New Password:
             <input type="password" name="newPassword" id="newpassword">
             <br>
             Confirm Password:
             <input type="password" name="confirmPassword" id="confirmpassword">
+            <br>
+            <br>
+            Change Profile Picture:
+            <input type="file" name="photo2" id="photo2"  accept=".jpg, .jpeg, .png">
             <br>
             
             

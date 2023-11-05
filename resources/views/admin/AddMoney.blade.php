@@ -40,6 +40,9 @@
     <button type="submit">Submit</button>
     <button><a href="/">Home</a></button>
     </form>
+    
+    <div id="alertBox"></div>
+    
 </body>
 
 
@@ -60,5 +63,22 @@
     });  
 }
 </script>
+<script>
+    var error = document.getElementById('message').value;
+    var status = document.getElementById('status').value;
+    console.log(error);
+    if(error){
+        const text = 'Transaction '+status+'! '+error;
+        const box = document.createTextNode(text);
+        document.getElementById('alertBox').appendChild(box);
+        if(status === "FAILED"){
+            document.getElementById('alertBox').style.color = "red";    
+        }
+        else{  
+            document.getElementById('alertBox').style.color = "green";    
+        }
 
+    }
+    
+</script>
 @endsection

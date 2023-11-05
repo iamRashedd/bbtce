@@ -17,6 +17,11 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    const ROLE_ADMIN = "ADMIN";
+    const ROLE_USER = "USER";
+    const STATUS_ACTIVE = "ACTIVE";
+    const STATUS_INACTIVE = "INACTIVE";
     protected $fillable = [
         'email',
         'password',
@@ -43,5 +48,12 @@ class User extends Authenticatable
 
     public function profile(){
         return $this->hasOne(Profile::class);
+    }
+
+    public function isAdmin(){
+        return $this->role==self::ROLE_ADMIN;
+    }
+    public function isActive(){
+        return $this->status==self::STATUS_ACTIVE;
     }
 }

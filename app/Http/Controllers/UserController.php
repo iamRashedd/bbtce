@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Redirect;
 class UserController extends Controller
 {
     public function index(){
-
+        if(!auth()->user()->isAdmin()){
+            abort(401,"You don't have access");
+        }
     }
     public function register(){
 
@@ -42,7 +44,7 @@ class UserController extends Controller
         $ID = null;
 
         do {
-            $ID = rand(100, 99999);
+            $ID = rand(100000, 199999);
         }
         while (
             Profile::where('ID', $ID)->exists()
@@ -51,9 +53,17 @@ class UserController extends Controller
         $user = new User();
         $user->email = $request->email;
         $user->password = $request->password;
+        $user->role = User::ROLE_USER;
+        $user->status = USER::STATUS_INACTIVE;
         $user->save();
         
         $profile = new Profile();
+
+        if($request->hasFile('photo')){
+            $imageName = $profile->id.'_photo.'.$request->file('photo')->extension();
+            $request->photo->move('assets/uploads/', $imageName);
+            $profile->photo=$imageName;   
+        }
 
         $profile->first_name = $request->firstName;
         $profile->last_name = $request->lastName;
@@ -63,8 +73,10 @@ class UserController extends Controller
         $profile->save();
 
 
-        Auth::login($user);
-        return redirect()->route('home')->with("success","Successfully created");
+        $message = 'Account Registered! Pending Approval';
+        $status = 'SUCCESS';
+
+        return view("user.Login",compact("status","message"));
 
     }
 
@@ -78,7 +90,39 @@ class UserController extends Controller
         return view("user.Edit",compact("user"));
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request){
+        $request->validate([
+            "oldPassword" => "required",
+            "firstName" => "required",
+            "lastName" => "required",
+        ]);
+        if(auth()->user()->getAuthPassword() == $request->oldPassword){
+            $profile = Profile::find(auth()->user()->profile->id);
+
+            if($request->hasFile('photo2')){
+                $imageName = $profile->id.'_photo.'.$request->file('photo2')->extension();
+                $request->photo2->move('assets/uploads/', $imageName);
+                $profile->photo = $imageName;   
+            }
+            
+            $profile->first_name = $request->firstName;
+            $profile->last_name = $request->lastName;
+            $profile->save();
+
+            if(!empty($request->newPassword) && $request->newPassword == $request->confirmPassword){
+                $user = User::find(auth()->user()->id);
+                $user->password = $request->newPassword;
+                $user->save();
+            }
+            $message = "Profile Updated";
+            $status = "Success";
+        }
+        else{
+            $message = "Incorrect Password";
+            $status = "Failed";
+        }
+
+        return redirect()->route('user.show');
 
     }
 
@@ -98,13 +142,26 @@ class UserController extends Controller
             "email"=> "required",
             "password"=> "required",
         ]);
+        $message = null;
+        $status = null;
         $user = User::where('email',$request->email)->where('password',$request->password)->first();
         if($user){
-            Auth::login($user);
-            return redirect()->route('home');
-        }else{
-        return redirect()->route('user.login');
+            if($user->isActive()){
+                Auth::login($user);
+                return redirect()->route('home');
+            }
+            else{
+                $message = 'Account is not activated yet!';
+                $status = 'FAILED';
+            }
         }
+        else{
+            $message = 'Incorrect Email/Password';
+            $status = 'FAILED';
+        }
+
+        return view("user.Login",compact("status","message"));
+        
     }
     public function logout(){
         Auth::logout();

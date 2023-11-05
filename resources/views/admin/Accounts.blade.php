@@ -19,7 +19,11 @@
                 <th>
                     ETH Balance 
                 </th>
+                <th colspan="3">
+                    Operations
+                </th>
             </tr>
+
 
             @foreach($profiles as $profile)
             <tr>
@@ -37,6 +41,15 @@
                 </td>
                 <td>
                     {{$profile->balanceETH}}
+                </td>
+                <td>
+                    <button><a href="">Active</a>
+                </td>
+                <td>
+
+                </td>
+                <td>
+
                 </td>
             </tr>
             @endforeach

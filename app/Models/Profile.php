@@ -18,6 +18,20 @@ class Profile extends Model
     ];
 
 
+    public function getBalance($currency){
+        
+        if($currency === "BDT"){
+            return $this->balanceBDT;
+        }
+        if($currency === "USD"){
+            return $this->balanceUSD;
+        }
+        if($currency === "ETH"){
+            return $this->balanceETH;
+        }
+    }
+
+
     public function addBalance($amount,$currency){
         
         if($currency === "BDT"){

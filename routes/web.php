@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get("/test", [Controller::class,"test"])->middleware('auth')->name("test");
+Route::post("/test", [Controller::class,"testSubmit"])->middleware('auth')->name('test.submit');
 
 Route::get('/', function () {
     return view('dashboard');
@@ -31,14 +37,20 @@ Route::prefix('user')->name('user.')->group(function () {
 
 });
 
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
-Route::get('/admin/addmoney', [ProfileController::class,'adminaddmoney'])->middleware('auth')->name('admin.addmoney');
-Route::post('/admin/addmoney', [ProfileController::class,'adminaddmoneySubmit'])->middleware('auth')->name('admin.addmoney.submit');
+    Route::get('/profile/list', [AdminController::class,'showProfiles'])->name('profile.list');
+    Route::get('/transaction/list', [AdminController::class,'showTransactions'])->name('transaction.list');
+    Route::get('/user/list', [AdminController::class,'showUsers'])->name('user.list');
+    Route::get('/addmoney', [AdminController::class,'addmoney'])->name('addmoney');
+    Route::post('/addmoney', [AdminController::class,'addmoneySubmit'])->name('addmoney.submit');
+    Route::get('/activate/user/{id}', [AdminController::class,'activateUser'])->name('user.activate');
+    Route::get('/deactivate/user/{id}', [AdminController::class,'deactivateUser'])->name('user.deactivate');
+    Route::get('/delete/user/{id}', [AdminController::class,'deleteUser'])->name('user.delete');
+    
 
+});
 Route::prefix('profile')->name('profile.')->middleware('auth')->group(function () {
-
-    Route::get('/list', [ProfileController::class,'index'])->name('list');
-
 
     Route::get('/addmoney', [ProfileController::class,'addmoney'])->name('addmoney');
     Route::post('/addmoney', [ProfileController::class,'addmoneySubmit'])->name('addmoney.submit');
@@ -54,3 +66,10 @@ Route::prefix('profile')->name('profile.')->middleware('auth')->group(function (
     Route::post('/conversion', [ProfileController::class,'changeCurrencySubmit'])->name('conversion.submit');
 
 });
+
+Route::prefix('transaction')->name('transaction.')->middleware('auth')->group(function () {
+    Route::get('/show', [TransactionController::class,'show'])->name('show');
+    Route::get('/showbysender/{account}', [TransactionController::class,'showBySender'])->name('show.sender');
+    Route::get('/showbyreciever/{account}', [TransactionController::class,'showByReciever'])->name('show.reciever');
+});
+    
