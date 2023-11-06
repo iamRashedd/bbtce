@@ -116,6 +116,9 @@ class UserController extends Controller
             
             $profile->first_name = $request->firstName;
             $profile->last_name = $request->lastName;
+            $profile->phone = $request->phone;
+            $profile->age = $request->age;
+            $profile->gender = $request->gender;
             $profile->save();
 
             if(!empty($request->newPassword) && $request->newPassword == $request->confirmPassword){
