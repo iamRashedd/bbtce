@@ -14,6 +14,19 @@
             Account Number:
             <input type="number" id="ProfileAccountNumber" value="{{$user->profile->account_number}}" disabled>
             <br>
+            Account Phone:
+            <input type="text" id="ProfilePhone" value="{{$user->profile->phone}}" disabled>
+            <br>
+            Account Gender:
+            <input type="text" id="ProfileGender" value="{{$user->profile->gender}}" disabled>
+            <br>
+            Account Age:
+            <input type="text" id="ProfileAge" value="{{$user->profile->age}}" disabled>
+            <br>
+            Account NID:
+            <br>
+            <img class="" height="150px" width="300px" src="../assets/uploads/{{$user->profile->nid}}">
+            <br>
             Account Balance:
             <br>
             <input type="number" id="ProfileBDTBalance" value="{{$user->profile->balanceBDT}}" disabled>BDT 

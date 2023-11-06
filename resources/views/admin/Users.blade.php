@@ -2,7 +2,7 @@
 
 @section('content')
 
-        <table border=1>
+        <table border=1 align=center>
             <tr>
                 <th>
                     Account Picture
@@ -29,6 +29,18 @@
                     Account Status
                 </th>
                 <th>
+                    Account Phone
+                </th>
+                <th>
+                    Account Gender
+                </th>
+                <th>
+                    Account Age
+                </th>
+                <th>
+                    Account NID
+                </th>
+                <th>
                     BDT Balance 
                 </th>
                 <th>
@@ -46,7 +58,7 @@
             @foreach($users as $user)
             <tr>
                 <td>
-                    <img class="" width="50px" src="../../assets/uploads/{{$user->profile->photo}}">
+                    <img class="" onclick="showImage(src)" width="50px" src="../../assets/uploads/{{$user->profile->photo}}">
                 </td>
                 <td>
                     {{$user->profile->account_number}}
@@ -61,13 +73,25 @@
                     {{$user->email}}
                 </td>
                 <td>
+                    {{$user->profile->username}}
+                </td>
+                <td>
                     {{$user->role}}
                 </td>
                 <td>
                     {{$user->status}}
                 </td>
                 <td>
-                    {{$user->profile->username}}
+                    {{$user->profile->phone}}
+                </td>
+                <td>
+                    {{$user->profile->gender}}
+                </td>
+                <td>
+                    {{$user->profile->age}}
+                </td>
+                <td>
+                    <img class="" onclick="showImage(src)" width="50px" src="../../assets/uploads/{{$user->profile->nid}}">
                 </td>
                 <td>
                     {{$user->profile->balanceBDT}}
@@ -101,6 +125,16 @@
         </table>
 
         <br>
-        <button><a href="/">Home</a></button>
+        <button ><a href="/">Home</a></button>
 
+<script>
+    function showImage(img){
+        window.open(img);
+    }
+</script>
+<style>
+    td {
+      text-align: center;
+    }
+</style>
 @endsection

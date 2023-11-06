@@ -31,6 +31,7 @@ class UserController extends Controller
             ]);
         */
 
+        //dd($request->all());
         
         
         $action = true;
@@ -64,10 +65,18 @@ class UserController extends Controller
             $request->photo->move('assets/uploads/', $imageName);
             $profile->photo=$imageName;   
         }
+        if($request->hasFile('nid')){
+            $imageName = $profile->id.'_nid.'.$request->file('nid')->extension();
+            $request->nid->move('assets/uploads/', $imageName);
+            $profile->nid=$imageName;   
+        }
 
         $profile->first_name = $request->firstName;
         $profile->last_name = $request->lastName;
         $profile->username = $request->username;
+        $profile->phone = $request->phone;
+        $profile->age = $request->age;
+        $profile->gender = $request->gender;
         $profile->account_number = $ID;
         $profile->user_id = $user->id;
         $profile->save();

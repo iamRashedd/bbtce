@@ -26,12 +26,12 @@ Route::get('/', function () {
 })->middleware('auth')->name('home');
 Route::prefix('user')->name('user.')->group(function () {
 
-    Route::get('/show', [UserController::class,'show'])->name('show');
+    Route::get('/show', [UserController::class,'show'])->middleware('auth')->name('show');
     Route::get('/edit', [UserController::class,'edit'])->name('edit');
-    Route::post('/edit', [UserController::class,'update'])->name('update');
+    Route::post('/edit', [UserController::class,'update'])->middleware('auth')->name('update');
     Route::get('/login', [UserController::class,'login'])->name('login');
     Route::post('/login', [UserController::class,'loginSubmit'])->name('login.submit');
-    Route::get('/logout', [UserController::class,'logout'])->name('logout');
+    Route::get('/logout', [UserController::class,'logout'])->middleware('auth')->name('logout');
     Route::get('/register', [UserController::class,'register'])->name('register');
     Route::post('/register', [UserController::class,'store'])->name('store');
 
