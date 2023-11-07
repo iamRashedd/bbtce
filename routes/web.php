@@ -18,12 +18,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/test", [Controller::class,"test"])->middleware('auth')->name("test");
-Route::post("/test", [Controller::class,"testSubmit"])->middleware('auth')->name('test.submit');
+Route::get("/test", [Controller::class,"test"])->name("test");
+Route::post("/test", [Controller::class,"testSubmit"])->name('test.submit');
 
 Route::get('/', function () {
     return view('dashboard');
 })->middleware('auth')->name('home');
+Route::get('/home', function () {
+    return view('Home');
+});
 Route::prefix('user')->name('user.')->group(function () {
 
     Route::get('/show', [UserController::class,'show'])->middleware('auth')->name('show');

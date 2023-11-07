@@ -15,8 +15,7 @@ class AdminController extends Controller
             abort(401,"You don't have access");
         }
         $profiles = Profile::get();
-        $message = "";
-        return view("admin.AddMoney",compact("profiles","message"));
+        return view("admin.AddMoney",compact("profiles"));
     }
 
     public function addmoneySubmit(Request $request){
@@ -26,9 +25,12 @@ class AdminController extends Controller
         }
 
         $profile = Profile::where("account_number",$request->profile)->first();
-        
+        $message = null;
+        $status = null;
         
         $profile->addBalance($request->amount,$request->currency);
+        $message = 'Balance Added';
+        $status = Transaction::STATUS_SUCCESS;
 
         Transaction::create([
             "sender_account_number" => 111111,
@@ -38,10 +40,11 @@ class AdminController extends Controller
             "currency"=> $request->currency,
             "current_balance"=> $profile->getBalance($request->currency),
             "current_balance_currency"=> $request->currency,
-            "status" => Transaction::STATUS_SUCCESS,
+            "status" => $status,
+            "remarks" => $message,
         ]);
-        
-        return redirect()->route('admin.profile.list');
+        $profiles = Profile::get();
+        return view("admin.AddMoney",compact("profiles","message","status"));
 
     }
 

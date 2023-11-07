@@ -6,50 +6,111 @@
     @csrf
         <input type="hidden" name="message" id="message" value="{{$message ?? ''}}">
         <input type="hidden" name="status" id="status" value="{{$status ?? ''}}">
+        <input type="hidden" id="ProfileBDTBalance" value="{{$profile->balanceBDT}}"> 
+        <input type="hidden" id="ProfileUSDBalance" value="{{$profile->balanceUSD}}">
+        <input type="hidden" id="ProfileETHBalance" value="{{$profile->balanceETH}}">
 
         <p id="ProfileDetail">
-            Account Name:
+        <div class="image "><img src="../assets/uploads/{{$profile->photo}}">
+            <h1><b>Account Name:
             <input type="text" id="ProfileFirstName" value="{{$profile->first_name}}" disabled>
             <input type="text" id="ProfileLastName" value="{{$profile->last_name}}" disabled>
-            <br>
-            Account Number:
+            <br></b></h1>
+            <p>Account Number:
             <input type="number" id="ProfileAccountNumber" value="{{$profile->account_number}}" disabled>
-            <br>
-            Account Balance:
-            <br>
-            <input type="number" id="ProfileBDTBalance" value="{{$profile->balanceBDT}}" disabled>BDT 
-            <br>
-            <input type="number" id="ProfileUSDBalance" value="{{$profile->balanceUSD}}" disabled>USD
-            <br>
-            <input type="number" id="ProfileETHBalance" value="{{$profile->balanceETH}}" disabled>ETH
-            
-        </p>
-        
+            <br></p>
+        </div> </p>
 
-        Transfer Account Number:
-        <input type="number" name="transferToAccount" />
         
-        Transfer Amount:
-        <input type="number" name="amount" value=""/>
-        <select name="currency" id="SelectedCurrency">
+        <div class="cash-section">
+        <b>Cash:</b>
+                <input type="number" step=".01" value="{{$profile->balanceBDT}}" name="balance" id="balance" disabled>
+                
+                <b>Currency</b>
+                <select name="balanceCurrency" id="balanceCurrency" onchange="displayBalance()">
+                    <option value="BDT">BDT</option>
+                    <option value="USD">USD</option>
+                    <option value="ETH">ETH</option>
+                </select>
+                </div>
+           
+
+
+                    <!-- div for user sending-->
+                    <div class="send">
+                <label for="fname"><b>Account Number:</b></label>
+                <input type="number" name="transferToAccount" placeholder="xxxxxxxxxxx" required>
+                <br>
+                <br>
+                <label for="fname"><b>Amount:</b></label>
+                <input type="number" name="amount" value="" placeholder="xxxxxxxxxxx" pattern="[0-9]+" min="20" required>
+                <select name="currency" id="SelectedCurrency">
             
-            <option value="BDT">BDT</option>
-            <option value="USD">USD</option>
-            <option value="ETH">ETH</option>
-            
-        </select>
-        <br>
-        Password:
-        <input type="password" name="password">
-        <br>
+                <option value="BDT">BDT</option>
+                <option value="USD">USD</option>
+                <option value="ETH">ETH</option>
+                
+                </select>
+                <br>
+                <br>
+                <label for="fname"><b>Password:</b></label>
+                <input type="password" placeholder="Password" name="password" id="password" required>
+                <img src="{{URL::asset('image/pwd_hide.png')}}" onclick="pass()" class="sendpwd_icon" id="pass_icon">
+                <br>
+                <br>
+                <br>
+                <div class="button_send">
+                <button type="submit">Transfer</button>
+                </div>
+                <br>
+                <div id="alertBox"></div>
+                <br>
+                <button><a href="/">Home</a></button>
+                <br>
+                <br>
+                <br>
+
+
+                <marquee>Welcome to BlockChain Technology . </marquee>
+            </div>
+
 
     
-    <button type="submit">Transfer</button>
-    <button><a href="/">Home</a></button>
+    
+    
     </form>
+<style>
+.send input[name="transferToAccount"] {
+    margin-left: 13px;
+}
 
-    <div id="alertBox"></div>
+.send input[name="amount"] {
+    right: 10px;
+    margin-left: 13px;
+}
+ #SelectedCurrency{
+    position: relative;
+    right: 57px;
+ }   
 
+
+</style>
+
+<script>
+
+    function displayBalance(){
+        var currency = document.getElementById('balanceCurrency').value;
+            if (currency == 'BDT') {
+                document.getElementById('balance').value = parseFloat(document.getElementById('ProfileBDTBalance').value).toFixed(2)
+            }
+            if (currency == 'USD') {
+                document.getElementById('balance').value = parseFloat(document.getElementById('ProfileUSDBalance').value).toFixed(2)
+            }
+            if (currency == 'ETH') {
+                document.getElementById('balance').value = parseFloat(document.getElementById('ProfileETHBalance').value).toFixed(2)
+            }
+        }; 
+</script>
 
 <script>
     var error = document.getElementById('message').value;
@@ -57,6 +118,7 @@
     console.log(error);
     if(error){
         const text = 'Transaction '+status+'! '+error;
+        alert(text);
         const box = document.createTextNode(text);
         document.getElementById('alertBox').appendChild(box);
         if(status === "FAILED"){
@@ -69,5 +131,6 @@
     }
     
 </script>
+
 
 @endsection

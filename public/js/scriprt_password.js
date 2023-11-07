@@ -3,12 +3,12 @@ var a;
 function pass() {
     if (a == 1) {
         document.getElementById('password').type = 'password';
-        document.getElementById('pass_icon').src = 'image/pwd_hide.png';
+        document.getElementById('pass_icon').src = '../image/pwd_hide.png';
         a = 0;
 
     } else {
         document.getElementById('password').type = 'text';
-        document.getElementById('pass_icon').src = 'image/pwd_show.png';
+        document.getElementById('pass_icon').src = '../image/pwd_show.png';
         a = 1;
     }
 }

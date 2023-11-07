@@ -1,72 +1,62 @@
 @extends('layout.theme')
-
 @section('content')
-<div>            
-            <img class="" width="150px" src="../assets/uploads/{{$user->profile->photo}}">
-            <br>
-            Account Name:
-            <input type="text" id="ProfileFirstName" value="{{$user->profile->first_name}}" disabled>
-            <input type="text" id="ProfileLastName" value="{{$user->profile->last_name}}" disabled>
-            <br>
-            Account Email:
-            <input type="text" id="ProfileAccountNumber" value="{{$user->email}}" disabled>
-            <br>
-            Account Number:
-            <input type="number" id="ProfileAccountNumber" value="{{$user->profile->account_number}}" disabled>
-            <br>
-            Account Phone:
-            <input type="text" id="ProfilePhone" value="{{$user->profile->phone}}" disabled>
-            <br>
-            Account Gender:
-            <input type="text" id="ProfileGender" value="{{$user->profile->gender}}" disabled>
-            <br>
-            Account Age:
-            <input type="text" id="ProfileAge" value="{{$user->profile->age}}" disabled>
-            <br>
-            Account NID:
-            <br>
-            <img class="" height="150px" width="300px" src="../assets/uploads/{{$user->profile->nid}}">
-            <br>
-            Account Balance:
-            <br>
-            <input type="number" id="ProfileBDTBalance" value="{{$user->profile->balanceBDT}}" disabled>BDT 
-            <br>
-            <input type="number" id="ProfileUSDBalance" value="{{$user->profile->balanceUSD}}" disabled>USD
-            <br>
-            <input type="number" id="ProfileETHBalance" value="{{$user->profile->balanceETH}}" disabled>ETH
-            <br>
+<div class="signup">
+    <!-- sign up page bg -->
+    <div class="signup-container">
+                        
+    <div class="signup-input">
+        <img class="" align=center onclick="showImage(src)" width="150px" src="../assets/uploads/{{$user->profile->photo}}">
+        <br>
+        
+        <label for="fname">First Name:</label><br>
+        <input type="text" id="ProfileFirstName" value="{{$user->profile->first_name}}" disabled>
+        <br>
+        
+        <label for="lname"> Last Name:</label><br>
+        <input type="text" id="ProfileLastName" value="{{$user->profile->last_name}}" disabled>
+        <br>
 
+        <label for="email">Email:</label><br>
+        <input type="text" id="ProfileAccountNumber" value="{{$user->email}}" disabled>
+        <br>
+
+        <label for="Phone_Number">phone number:</label><br>
+        <input type="number" id="ProfileAccountNumber" value="{{$user->profile->account_number}}" disabled>
+        <br>
+
+        <label for="User_Name">Username:</label><br>
+        <input type="text" id="ProfileUsername" value="{{$user->profile->username}}" disabled><br>
+
+        <label for="Age">Age:</label><br>
+        <input type="text" id="ProfileGender" value="{{$user->profile->age}}" disabled><br>
+
+        <label for="Gender">Gender:</label><br>
+        <input type="text" id="ProfileGender" value="{{$user->profile->gender}}" disabled><br>
+
+        <label for="NID">NID:</label><br>
+        <div class="nid">
+        <img class="" onclick="showImage(src)" height="150px" width="300px" src="../assets/uploads/{{$user->profile->nid}}">
+        </div> 
+        <br>
+        <div class="button_signup">
             <button><a href="/user/edit">Edit</a></button>
-            <button><a href="/">Home</a></button>
+                <button><a href="/">Home</a></button>
+        </div>
 
-            <br>
-            <br>
-                Cash:
-                <input type="number" step=".01" value="{{$user->profile->balanceBDT}}" name="balance" id="balance">
-                
-                <b>Currency</b>
-                <select name="currency" id="currency" onchange="displayBalance()">
-                    <option value="BDT">BDT</option>
-                    <option value="USD">USD</option>
-                    <option value="ETH">ETH</option>
-                </select>
-                
+        </div>
 
+                    </div>
+    
+    </div>
+
+
+    </div>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script type="text/javascript" src="{{URL::asset('js/scriprt_password.js')}}"></script>
 <script>
-
-    function displayBalance(){
-        var currency = document.getElementById('currency').value;
-            if (currency == 'BDT') {
-                document.getElementById('balance').value = parseFloat(document.getElementById('ProfileBDTBalance').value).toFixed(2)
-            }
-            if (currency == 'USD') {
-                document.getElementById('balance').value = parseFloat(document.getElementById('ProfileUSDBalance').value).toFixed(2)
-            }
-            if (currency == 'ETH') {
-                document.getElementById('balance').value = parseFloat(document.getElementById('ProfileETHBalance').value).toFixed(2)
-            }
-        }; 
+    function showImage(img){
+        window.open(img);
+    }
 </script>
 @endsection

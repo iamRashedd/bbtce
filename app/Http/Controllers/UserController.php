@@ -113,6 +113,11 @@ class UserController extends Controller
                 $request->photo2->move('assets/uploads/', $imageName);
                 $profile->photo = $imageName;   
             }
+            if($request->hasFile('nid2')){
+                $imageName = $profile->id.'_nid.'.$request->file('nid2')->extension();
+                $request->nid2->move('assets/uploads/', $imageName);
+                $profile->nid = $imageName;   
+            }
             
             $profile->first_name = $request->firstName;
             $profile->last_name = $request->lastName;

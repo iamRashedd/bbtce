@@ -138,6 +138,7 @@ class ProfileController extends Controller
             "amount" => "required",
             "password" => "required",
         ]);
+
         
         $profile = auth()->user()->profile;
         $message = null;

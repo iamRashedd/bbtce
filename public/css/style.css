@@ -4,9 +4,11 @@
     box-sizing: border-box;
 }
 
-.testclass{
+.testclass {
     font-size: 10px;
 }
+
+
 /*  -----------home---------- */
 
 .container {
@@ -170,7 +172,7 @@ nav .button {
 
 .pass_icon {
     position: absolute;
-    top: 4px;
+    top: 21px;
     right: 10px;
     width: 20px;
     cursor: pointer;
@@ -186,7 +188,7 @@ nav .button {
     color: white;
 }
 
-input[type="submit"] {
+button {
     width: 25%;
     height: 30px;
     border: 1px solid white;
@@ -194,7 +196,7 @@ input[type="submit"] {
     font-size: 18px;
 }
 
-input[type="text"] {
+.input-login input[type="email"] {
     width: 100%;
     height: 25px;
     border: 1px solid white;
@@ -308,7 +310,7 @@ input[type="submit"]:hover {
 .country {
     display: flex;
     margin-top: 10px;
-    margin-left: 130px;
+    margin-left: 0px;
 }
 
 .button_signup input {
@@ -317,8 +319,8 @@ input[type="submit"]:hover {
     z-index: 10;
 }
 
-.button_signup input[type="submit"] {
-    margin-left: 400px;
+.button_signup button[type="submit"] {
+    margin-left: 300px;
     width: 20%;
     height: 25px;
     border: 2px solid #b7b3b3;
@@ -330,7 +332,7 @@ input[type="submit"]:hover {
 
 .signpwd_icon {
     position: absolute;
-    top: 280px;
+    top: 325px;
     right: 168px;
     width: 20px;
     cursor: pointer;
@@ -338,7 +340,7 @@ input[type="submit"]:hover {
 
 .confirepwd_icon {
     position: absolute;
-    top: 325px;
+    top: 367px;
     right: 168px;
     width: 20px;
     cursor: pointer;
@@ -485,7 +487,7 @@ input[type="submit"]:hover {
 }
 
 .add input[type="number"] {
-    margin-left: 73px;
+    margin-left: 5px;
 }
 
 .button_add input {
@@ -494,7 +496,7 @@ input[type="submit"]:hover {
     z-index: 10;
 }
 
-.button_add input[type="submit"] {
+.button_add button[type="submit"] {
     margin-left: 30px;
     width: 20%;
     height: 25px;
@@ -511,7 +513,13 @@ input[type="submit"]:hover {
 }
 
 .cash-section {
-    position: relative;
+    position: absolute;
+    top: 47px;
+    left: 719px;
+}
+
+.cash-section b {
+    color: #f8f8f8;
 }
 
 .cash input {
@@ -616,14 +624,15 @@ input[type="submit"]:hover {
     margin-left: 10px;
 }
 
-.send input[type="number"] {
-    margin-left: 73px;
-}
+
+/* .send input[type="number"] {
+    margin-left: 100px;
+} */
 
 .sendpwd_icon {
     position: absolute;
-    top: 285px;
-    right: 425px;
+    top: 263px;
+    right: 406px;
     width: 20px;
     cursor: pointer;
 }
@@ -633,7 +642,7 @@ input[type="submit"]:hover {
 
 .swap {
     margin-left: 250PX;
-    height: 300px;
+    height: 322px;
     width: 550px;
     margin-top: 5px;
     background-color: rgb(231, 233, 241);
@@ -783,7 +792,7 @@ input[type="submit"]:hover {
 /*  -----------about us---------- */
 
 body {
-    background-color: #ffffff;
+    background-color: #020e2c;
 }
 
 .container2 .logo {
