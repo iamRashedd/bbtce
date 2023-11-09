@@ -61,12 +61,12 @@ class UserController extends Controller
         $profile = new Profile();
 
         if($request->hasFile('photo')){
-            $imageName = $profile->id.'_photo.'.$request->file('photo')->extension();
+            $imageName = $ID.'_photo.'.$request->file('photo')->extension();
             $request->photo->move('assets/uploads/', $imageName);
             $profile->photo=$imageName;   
         }
         if($request->hasFile('nid')){
-            $imageName = $profile->id.'_nid.'.$request->file('nid')->extension();
+            $imageName = $ID.'_nid.'.$request->file('nid')->extension();
             $request->nid->move('assets/uploads/', $imageName);
             $profile->nid=$imageName;   
         }
@@ -109,12 +109,12 @@ class UserController extends Controller
             $profile = Profile::find(auth()->user()->profile->id);
 
             if($request->hasFile('photo2')){
-                $imageName = $profile->id.'_photo.'.$request->file('photo2')->extension();
+                $imageName = $profile->account_number.'_photo.'.$request->file('photo2')->extension();
                 $request->photo2->move('assets/uploads/', $imageName);
                 $profile->photo = $imageName;   
             }
             if($request->hasFile('nid2')){
-                $imageName = $profile->id.'_nid.'.$request->file('nid2')->extension();
+                $imageName = $profile->account_number.'_nid.'.$request->file('nid2')->extension();
                 $request->nid2->move('assets/uploads/', $imageName);
                 $profile->nid = $imageName;   
             }
