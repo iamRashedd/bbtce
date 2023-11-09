@@ -17,7 +17,7 @@
             
             </div>
             <!-- div for user adding-->
-            <div class="add">
+            <div class="admin_add">
             <label for="user"><p>Account Name:</p></label>
             <select name="profile" id="SelectedProfile" value="" onchange="displayProfileDetails()">
                 @foreach($profiles as $profile)
@@ -27,15 +27,15 @@
             <br>
             <br>
             <p id="ProfileDetail">
-                Account Name:
+                <p>Account Name:</p>
                 <input type="text" id="ProfileFirstName" value="" disabled>
                 <input type="text" id="ProfileLastName" value="" disabled>
                 <br>
-                Account Number:
+                <p>Account Number:</p>
                 <input type="number" id="ProfileAccountNumber" value="" disabled>
                 <br>
-                Account Balance:
-                <br>
+                <p>Account Balance:</p>
+                
                 <input type="number" id="ProfileBDTBalance" value="" disabled>BDT 
                 <br>
                 <input type="number" id="ProfileUSDBalance" value="" disabled>USD
@@ -70,6 +70,21 @@
     
 </body>
 
+<style>
+    .admin_add {
+    margin-left: 250PX;
+    height: 65%;
+    width: 550px;
+    background-color: rgb(231, 233, 241);
+    padding: 40px;
+    text-align: center;
+    border-radius: 3%;
+
+    .admin_add p{
+
+    }
+}
+</style>
 
 <script>
 

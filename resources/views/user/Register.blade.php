@@ -94,7 +94,7 @@
                     </div>
     <div class="button_signup">
         <button type="submit">Create Account</button>
-        <button><a href="/">Home</a></button>
+        
     </div>
     </div>
 </form>
@@ -102,6 +102,7 @@
 
     </div>
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script type="text/javascript" src="{{URL::asset('js/scriprt_password.js')}}"></script>
 

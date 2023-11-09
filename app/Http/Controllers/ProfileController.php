@@ -164,7 +164,7 @@ class ProfileController extends Controller
         Transaction::create([
             "sender_account_number" => $profile->account_number,
             "reciever_account_number" => $profile->account_number,
-            "type" => Transaction::TYPE_TRANSFER,
+            "type" => Transaction::TYPE_CONVERSION,
             "amount"=> $request->amount,
             "currency"=> $request->currency2,
             "current_balance"=> $profile->getBalance($request->currency),

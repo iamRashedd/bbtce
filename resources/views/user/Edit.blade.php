@@ -5,7 +5,7 @@
   
 <div class="signup">
     <!-- sign up page bg -->
-    <div class="signup-container">
+    <div class="edit-container">
                         <!-- sign up form  -->
                         <h2 style="padding: 20px; text-align: center; letter-spacing: 0.1em;">Edit</h2> <br>
     <form action="{{route('user.update')}}" method="post" enctype="multipart/form-data">
@@ -121,6 +121,22 @@
 
     </div>
 </div>
+
+<style>
+.edit-container {
+
+    width: 70%;
+    height: 150%;
+    background-color: #efebf4;
+    position: relative;
+    left: 17%;
+    padding-left: 10px;
+    max-width: 700px;
+}
+
+
+</style>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script type="text/javascript" src="{{URL::asset('js/scriprt_password.js')}}"></script>
 

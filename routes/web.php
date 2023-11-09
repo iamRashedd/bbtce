@@ -27,6 +27,13 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('Home');
 });
+
+
+Route::get('/aboutus', function () {
+    return view('Aboutus');
+})->name('aboutus');
+
+
 Route::prefix('user')->name('user.')->group(function () {
 
     Route::get('/show', [UserController::class,'show'])->middleware('auth')->name('show');

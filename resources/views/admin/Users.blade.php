@@ -135,6 +135,11 @@
 <style>
     td {
       text-align: center;
+      color: aliceblue;
+    }
+    th {
+      text-align: center;
+      color: aliceblue;
     }
 </style>
 @endsection

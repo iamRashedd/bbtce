@@ -15,11 +15,11 @@
                 <h1><b>Account Name:
             <input type="text" id="ProfileFirstName" value="{{$profile->first_name}}" disabled>
             <input type="text" id="ProfileLastName" value="{{$profile->last_name}}" disabled>
-            <br></b></h1>
+            <br></b></h1><br>
                 <p>            Account Number:
             <input type="number" id="ProfileAccountNumber" value="{{$profile->account_number}}" disabled>
             <br></p>
-            </div> 
+            </div><br> 
     </p>
     <div class="cash-section">
         <b>Cash:</b>
@@ -49,15 +49,17 @@
         </select>
                 
                 <br>
-                <div class="password">
-                    Password:
-                    <input type="password" name="password" placeholder="User Password" id="password">
-                    <img src="{{URL::asset('image/pwd_hide.png')}}" onclick="pass()" class="pass_icon" id="pass_icon">
-                    </div>
+                <br>
+                <label for="fname"><b>Password:</b></label>
+                <input  type="password" placeholder="Password" name="password" id="password" required>
+               
+                <img src="{{URL::asset('image/pwd_hide.png')}}" onclick="pass()" class="sendpwd_icon" id="pass_icon" 
+                style="margin-top: 3%; margin-right:40px;">
+                   
                 <br>
                 <br>
                 <div class="button_add">
-                <button type="submit">Submit</button>
+                <button type="submit">Withdraw</button>
                     <!--<input type="submit" value=" ADD">-->
                 </div>
                 <div id="alertBox"></div>
@@ -66,8 +68,7 @@
                 <button><a href="/">Home</a></button>
                 <br>
                 <br>
-                <br>
-                <br>
+               
                 <marquee>Welcome to BlockChain Technology . </marquee>
 
 
@@ -76,9 +77,46 @@
     
     </form>
 
-    <style></style>
+  
+        
+    <style>
+        input{
+            background-color: aliceblue;
+            color: black;
+            margin-left: 5px;
+        }
+      
+    
+    </style>
     <script>
+ var a;
 
+function pass() {
+    if (a == 1) {
+        document.getElementById('password').type = 'password';
+        document.getElementById('pass_icon').src = '../image/pwd_hide.png';
+        a = 0;
+
+    } else {
+        document.getElementById('password').type = 'text';
+        document.getElementById('pass_icon').src = '../image/pwd_show.png';
+        a = 1;
+    }
+}
+var b;
+
+function confpass() {
+    if (b == 1) {
+        document.getElementById('confirm_password').type = 'password';
+        document.getElementById('confirepwd_icon').src = '../image/pwd_hide.png';
+        b = 0;
+
+    } else {
+        document.getElementById('confirm_password').type = 'text';
+        document.getElementById('confirepwd_icon').src = '../image/pwd_show.png';
+        b = 1;
+    }
+}
     function displayBalance(){
         var currency = document.getElementById('balanceCurrency').value;
             if (currency == 'BDT') {

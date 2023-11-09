@@ -13,19 +13,19 @@
     <h2>Log In</h2>
                 <br>
                 <div class="input-login">
-    User Name:
+    <h3>Enter Email:</h3>
     <!-- <input type="email" name="email" > -->
     <input type="email" name="email" placeholder="User Email">
                 </div>
     <br>
     <div class="password">
-    Password:
+    <h3>Enter Password:</h3>
     <input type="password" name="password" placeholder="User Password" id="password">
     <img src="{{URL::asset('image/pwd_hide.png')}}" onclick="pass()" class="pass_icon" id="pass_icon">
     </div>
     <br>
     <div class="login-button">
-    <button type="submit" value="Login">Login</button>
+    <button type="submit" value="Login" style="margin-left:10%;">Login</button>
     </div>
     <div id="alertBox"></div>
 
@@ -68,4 +68,14 @@
     }
     
 </script>
+<style>
+    .input-login h3{
+        color: aliceblue;
+    }
+    .password h3{
+        color: aliceblue;
+    }
+   
+</style>
+
 @endsection

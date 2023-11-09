@@ -5,13 +5,14 @@
 <table>
     <tr>
         <td colspan="2" align=center>
-            <div class="image "><img src="../assets/uploads/{{auth()->user()->profile->photo}}">
-                <div style="margin-top:50px;margin-left:500px;">
+            <div class="adminimage "><img src="../assets/uploads/{{auth()->user()->profile->photo}}">
+                <div style="margin-top:30px;margin-left:0%;">
                     <h1><b>{{auth()->user()->profile->username}}</b></h1>
                     <p>Account | {{auth()->user()->profile->account_number}}</p>
                 </div>
             </div>
         </td>
+        
     </tr>
 
     <tr>
@@ -65,10 +66,16 @@ button{
     border: 1px solid white;
     border-radius: 10px;
     font-size: 18px;
+    background-color:#E5DFDE;
+    
+
+}
+button a {
+    text-decoration: none;
 }
 
 .adminpage {
-    margin-top: 21.5%;
+    margin-top: 3%;
     margin-left: 5%;
     height: 300px;
     width: 550px;
@@ -80,8 +87,8 @@ button{
 
 
 .adminpage1 {
-    margin-top: 21.5%;
-    margin-left: 55%;
+    margin-top: 3%;
+    margin-left: 38%;
     height: 300px;
     width: 550px;
     background-color: rgb(231, 233, 241);
@@ -89,6 +96,32 @@ button{
     text-align: center;
     border-radius: 3%;
 }
+
+.adminimage {
+    margin-left: 17%;
+}
+
+
+.adminimage img{
+    margin-top: 9px;
+    height: 110px;
+    width: 113px;
+    border-radius: 90%;
+}
+
+.adminimage h1 {
+    font-size: 20px;
+    color: rgb(255, 252, 252);
+    text-align: center;
+}
+
+.adminimage p {
+    opacity: 0.7;
+    font-size: 15px;
+    color: rgb(247, 242, 242);
+    text-align: center;
+}
+
 
 </style>
 

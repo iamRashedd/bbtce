@@ -15,12 +15,12 @@
             <h1><b>Account Name:
             <input type="text" id="ProfileFirstName" value="{{$profile->first_name}}" disabled>
             <input type="text" id="ProfileLastName" value="{{$profile->last_name}}" disabled>
-            <br></b></h1>
+            <br></b></h1><br>
             <p>Account Number:
             <input type="number" id="ProfileAccountNumber" value="{{$profile->account_number}}" disabled>
             <br></p>
         </div> </p>
-
+        <br>
         <div class="cash-section">
             <b>Cash:</b>
                 <input type="number" step=".01" value="{{$profile->balanceBDT}}" name="balance" id="balance" disabled>
@@ -67,7 +67,9 @@
                 <label for="fname"><b>Password:</b></label>
                 <input type="password" name="password" placeholder="Password" id="password" required>
                
-                <img src="{{URL::asset('image/pwd_hide.png')}}" onclick="pass()" class="sendpwd_icon" id="pass_icon"><br><br>
+                <img src="{{URL::asset('image/pwd_hide.png')}}" onclick="pass()"
+                 class="sendpwd_icon" id="pass_icon" 
+                 style="margin-top: 3.6%; margin-right:0px;"><br><br>
                 <br>
                 <div id="convertedBalance">
                     Converted Amount: 
@@ -82,7 +84,7 @@
                 <br>
                 <button><a href="/">Home</a></button>
                 <br>
-                <br>
+                
                 <marquee>Welcome to BlockChain Technology . </marquee>
             </div>
 
@@ -90,8 +92,42 @@
         <br>
     </form>
 
+    <style>
+        input{
+            background-color: aliceblue;
+            color: black;
+            margin-left: 5px;
+        }
+      
+    </style>
 <script>
+var a;
 
+function pass() {
+    if (a == 1) {
+        document.getElementById('password').type = 'password';
+        document.getElementById('pass_icon').src = '../image/pwd_hide.png';
+        a = 0;
+
+    } else {
+        document.getElementById('password').type = 'text';
+        document.getElementById('pass_icon').src = '../image/pwd_show.png';
+        a = 1;
+    }
+}
+var b;
+function confpass() {
+    if (b == 1) {
+        document.getElementById('confirm_password').type = 'password';
+        document.getElementById('confirepwd_icon').src = '../image/pwd_hide.png';
+        b = 0;
+
+    } else {
+        document.getElementById('confirm_password').type = 'text';
+        document.getElementById('confirepwd_icon').src = '../image/pwd_show.png';
+        b = 1;
+    }
+}
     function displayBalance(){
         var currency = document.getElementById('balanceCurrency').value;
             if (currency == 'BDT') {

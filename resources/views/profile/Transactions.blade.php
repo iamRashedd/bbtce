@@ -67,7 +67,7 @@
                     {{$transaction->current_balance_currency}}
                 </td>
                 <td>
-                    {{$transaction->created_at}}
+                    {{$transaction->created_at->format('Y-m-d h:i:s')}}
                 </td>
             </tr>
             @endforeach
@@ -75,5 +75,16 @@
 
         <br>
         <button><a href="/">Home</a></button>
+
+<style>
+    th{
+        color: aliceblue;
+    }
+    td{
+        color: aliceblue;
+    }
+   
+</style>
+
 
 @endsection
